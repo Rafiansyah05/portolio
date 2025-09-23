@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rafiansyah Portfolio</title>
+    <link rel="icon" type="image/png" href="img/logo-2.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+      body {
+        background-color: #020617; /* fallback dark base */
+        background-image: radial-gradient(14rem 14rem at 10% 10%, rgba(59, 130, 246, 0.18), transparent 35%), radial-gradient(12rem 12rem at 85% 15%, rgba(99, 102, 241, 0.14), transparent 40%),
+          radial-gradient(18rem 18rem at 50% 35%, rgba(14, 165, 233, 0.06), transparent 30%), radial-gradient(10rem 10rem at 25% 70%, rgba(236, 72, 153, 0.08), transparent 38%),
+          radial-gradient(11rem 11rem at 75% 65%, rgba(16, 185, 129, 0.06), transparent 40%), radial-gradient(30rem 30rem at 50% 85%, rgba(99, 102, 241, 0.03), transparent 25%);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-blend-mode: screen, screen, overlay, screen, overlay, screen;
+        color: #ffffff;
+        font-family: 'Poppins', sans-serif;
+      }
+      .logo-slider,
+      .project-slider,
+      .achievement-slider {
+        display: flex;
+        gap: 2rem;
+        animation: slide 25s linear infinite;
+        width: max-content;
+      }
+      @keyframes slide {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .typing-text::after {
+        content: '|';
+        animation: blink 0.7s infinite;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+      .active {
+        border-bottom: 2px solid #3b82f6;
+        color: #3b82f6;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full bg-black/40 backdrop-blur-lg flex justify-between items-center px-6 md:px-12 py-4 z-50">
+      <div class="flex items-center space-x-4">
+        <img src="img/logo.png" alt="Logo" class="h-8 w-auto md:h-10" />
+      </div>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex space-x-8 items-center">
+        <li><a href="#home" class="nav-link active px-3 py-2">Home</a></li>
+        <li><a href="#about" class="nav-link px-3 py-2">About Me</a></li>
+        <li><a href="#projects" class="nav-link px-3 py-2">Projects</a></li>
+        <li><a href="#achievement" class="nav-link px-3 py-2">Achievement</a></li>
+        <li>
+          <a href="#contact" class="bg-blue-500 hover:bg-blue-600 text-white px-5 py-3 rounded-lg transition nav-link">Let's Talk</a>
+        </li>
+      </ul>
+
+      <!-- Hamburger Button -->
+      <button id="menu-btn" class="md:hidden flex flex-col space-y-1 focus:outline-none">
+        <span class="w-6 h-0.5 bg-white"></span>
+        <span class="w-6 h-0.5 bg-white"></span>
+        <span class="w-6 h-0.5 bg-white"></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div id="sidebar" class="fixed top-0 right-0 h-full w-64 bg-black/90 backdrop-blur-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50 p-6 space-y-6">
+      <button id="close-btn" class="absolute top-4 right-4 text-white text-2xl">&times;</button>
+      <a href="#home" class="block text-lg nav-link">Home</a>
+      <a href="#about" class="block text-lg nav-link">About Me</a>
+      <a href="#projects" class="block text-lg nav-link">Projects</a>
+      <a href="#achievement" class="block text-lg nav-link">Achievement</a>
+      <a href="#contact" class="block bg-blue-500 text-white px-5 py-3 rounded-lg text-center">Let's Talk</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="flex flex-col justify-center items-center text-center h-screen px-6" style="font-family: 'Poppins', sans-serif">
+      <h2 class="text-3xl md:text-5xl font-bold">HAI! I'M RAFIANSYAH</h2>
+      <h3 class="text-2xl md:text-4xl font-bold text-blue-400 mt-4">I'M A <span class="typing-text" id="typing"></span></h3>
+      <p class="mt-6 max-w-xl text-gray-300">
+        With a passion for front-end development and UI/UX design, I enjoy creating digital solutions that are not only functional but also visually engaging and deliver delightful interactions for users.
+      </p>
+      <div class="flex space-x-4 mt-6">
+        <a href="#contact" class="bg-blue-500 px-6 py-3 rounded-2xl hover:bg-blue-600 transition">Get in Touch</a>
+        <a href="https://www.instagram.com/rafiansya__/" class="rounded-full p-3 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 hover:scale-105 transition shadow-md" aria-label="Instagram" title="Instagram">
+          <img src="img/Vector-ig.svg" alt="Instagram" class="w-6 h-6 block" />
+        </a>
+
+        <a href="https://github.com/Rafiansyah05" class="rounded-full p-3 bg-black hover:scale-105 transition shadow-md" aria-label="GitHub" title="GitHub">
+          <img src="img/Vector-github.svg" alt="GitHub" class="w-6 h-6 block" style="filter: brightness(0) invert(1)" />
+        </a>
+      </div>
+    </section>
+
+    <!-- Logo Slider -->
+    <section class="overflow-hidden py-10 bg-blue-950/50">
+      <div class="logo-slider max-w-6xl mx-auto px-6" style="width: 100%; justify-content: space-between">
+        <img src="img/image-3.png" class="h-10" />
+        <img src="img/image-4.png" class="h-10" />
+        <img src="img/image-5.png" class="h-10" />
+        <img src="img/image-6.png" class="h-10" />
+      </div>
+    </section>
+
+    <!-- About Me -->
+    <section id="about" class="px-6 md:px-20 py-20 grid md:grid-cols-2 gap-10 items-center">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+      <script>
+        document.documentElement.style.fontFamily = "'Poppins', sans-serif";
+      </script>
+
+      <div class="mx-auto max-w-[420px] rounded-3xl p-1 bg-gradient-to-tr from-blue-500 via-blue-700 to-slate-900 shadow-2xl hover:scale-105 transition">
+        <div class="bg-black/50 rounded-3xl overflow-hidden">
+          <img src="img/foto-saya-1.png" alt="Foto Rafiansyah" class="w-full h-auto block object-cover rounded-3xl" />
+        </div>
+      </div>
+      <div>
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">I'M AVAILABLE FOR <br /><span class="text-blue-400">FRONTEND</span> DEVELOPER</h2>
+        <p class="text-gray-300 mb-6">
+          With a background and strong interest in front-end development and UI/UX design, I enjoy creating digital solutions that prioritize user experience. My focus is on delivering clean, responsive, and easy-to-use interfaces while
+          ensuring every design detail supports the product’s goals. I believe that technology and design can work hand in hand to create enjoyable and impactful experiences for users.
+        </p>
+        <div class="grid grid-cols-3 gap-4 mb-6">
+          <div class="bg-blue-900/40 rounded-xl p-4 text-center">15+<br />Projects</div>
+          <div class="bg-blue-900/40 rounded-xl p-4 text-center">2+<br />Years</div>
+          <div class="bg-blue-900/40 rounded-xl p-4 text-center">4+<br />Achv</div>
+        </div>
+        <br />
+        <a href="#contact" class="bg-blue-500 px-10 py-4 rounded-2xl hover:bg-blue-600 transition mt-10">Get in Touch</a>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="px-6 md:px-20 py-20 overflow-hidden" style="font-family: 'Poppins', sans-serif">
+      <h2 class="text-3xl font-bold mb-10 text-center">Recent Projects</h2>
+
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center justify-items-center">
+          <div class="bg-black/40 py-6 px-6 rounded-2xl shadow-md hover:scale-105 transition max-w-sm mx-auto flex flex-col items-start">
+            <img src="img/jobify.png" alt="Project 1 screenshot" class="w-full h-56 object-cover rounded-md" />
+            <h3 class="text-white text-xl md:text-2xl font-semibold mt-4">UI/UX JOBIFY</h3>
+            <p class="text-gray-300 text-sm md:text-base mt-2">An app designed to reduce job market mismatch.</p>
+            <a
+              href="https://www.figma.com/proto/8rEJcU2t4MHdxzwyvmIyQX/DESIGN-ANFORCOM?page-id=1%3A3&node-id=33-4538&viewport=-143%2C-77%2C0.52&t=KWYhFUUq45eRMysd-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=111%3A594%20"
+              class="mt-4 bg-blue-500 text-white px-4 py-3 rounded-3xl hover:bg-blue-600 text-sm md:text-base"
+              >View Project</a
+            >
+          </div>
+
+          <div class="bg-black/40 py-6 px-6 rounded-2xl shadow-md hover:scale-105 transition max-w-sm mx-auto flex flex-col items-start">
+            <img src="img/eduka.png" alt="Project 2 screenshot" class="w-full h-56 object-cover rounded-md" />
+            <h3 class="text-white text-xl md:text-2xl font-semibold mt-4">UI/UX EDUKA</h3>
+            <p class="text-gray-300 text-sm md:text-base mt-2">An interactive learning app for high school students.</p>
+            <a
+              href="https://www.figma.com/proto/vEvTAUu8ed6FmhAhqRpE6U/DESIGN-ICONIC?page-id=1%3A3&node-id=2030-2&viewport=397%2C-2128%2C0.87&t=qSLAFSduHuU52cQx-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2030%3A12&show-proto-sidebar=1"
+              class="mt-4 bg-blue-500 text-white px-4 py-3 rounded-3xl hover:bg-blue-600 text-sm md:text-base"
+              >View Project</a
+            >
+          </div>
+
+          <div class="bg-black/40 py-6 px-6 rounded-2xl shadow-md hover:scale-105 transition max-w-sm mx-auto flex flex-col items-start">
+            <img src="img/traveler.png" alt="Project 3 screenshot" class="w-full h-56 object-cover rounded-md" />
+            <h3 class="text-white text-xl md:text-2xl font-semibold mt-4">UI/UX TRAVELER</h3>
+            <p class="text-gray-300 text-sm md:text-base mt-2">A platform that makes traveling more interactive and automated.</p>
+            <a
+              href="https://www.figma.com/proto/bI99hBSRYOKySRtpVyzy1D/DESIGN?page-id=1%3A3&node-id=12-36261&viewport=330%2C131%2C0.48&t=FecwBgRWWTf0oe6c-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=12%3A34954"
+              class="mt-4 bg-blue-500 text-white px-4 py-3 rounded-3xl hover:bg-blue-600 text-sm md:text-base"
+              >View Project</a
+            >
+          </div>
+
+          <div class="bg-black/40 py-6 px-6 rounded-2xl shadow-md hover:scale-105 transition max-w-sm mx-auto flex flex-col items-start">
+            <img src="img/bmi.png" alt="Project 4 screenshot" class="w-full h-56 object-cover rounded-md" />
+            <h3 class="text-white text-xl md:text-2xl font-semibold mt-4">BMI CALCULATOR</h3>
+            <p class="text-gray-300 text-sm md:text-base mt-2">A website to calculate Body Mass Index easily.</p>
+            <a href="https://rafiansyah05.github.io/CALCULATOR-BMI/" class="mt-4 bg-blue-500 text-white px-4 py-3 rounded-3xl hover:bg-blue-600 text-sm md:text-base">View Project</a>
+          </div>
+
+          <div class="bg-black/40 py-6 px-6 rounded-2xl shadow-md hover:scale-105 transition max-w-sm mx-auto flex flex-col items-start">
+            <img src="img/kodam.png" alt="Project 5 screenshot" class="w-full h-56 object-cover rounded-md" />
+            <h3 class="text-white text-xl md:text-2xl font-semibold mt-4">CHECK KHODAM</h3>
+            <p class="text-gray-300 text-sm md:text-base mt-2">A fun entertainment website to "find your khodam" (just for fun).</p>
+            <a href="https://rafiansyah05.github.io/chek-khodam/" class="mt-4 bg-blue-500 text-white px-4 py-3 rounded-3xl hover:bg-blue-600 text-sm md:text-base">View Project</a>
+          </div>
+
+          <div class="bg-black/40 py-6 px-6 rounded-2xl shadow-md hover:scale-105 transition max-w-sm mx-auto flex flex-col items-start">
+            <img src="img/love.png" alt="Project 6 screenshot" class="w-full h-56 object-cover rounded-md" />
+            <h3 class="text-white text-xl md:text-2xl font-semibold mt-4">LOVE CHARACTER</h3>
+            <p class="text-gray-300 text-sm md:text-base mt-2">A playful website to discover what kind of person you are.</p>
+            <a href="https://rafiansyah05.github.io/LOVE-CHARACTER/" class="mt-4 bg-blue-500 text-white px-4 py-3 rounded-3xl hover:bg-blue-600 text-sm md:text-base">View Project</a>
+          </div>
+
+          <div class="bg-black/40 py-6 px-6 rounded-2xl shadow-md hover:scale-105 transition max-w-sm mx-auto flex flex-col items-start">
+            <img src="img/kasir.png" alt="Project 7 screenshot" class="w-full h-56 object-cover rounded-md" />
+            <h3 class="text-white text-xl md:text-2xl font-semibold mt-4">SIMPLE CASHIER SYSTEM</h3>
+            <p class="text-gray-300 text-sm md:text-base mt-2">A simple website to simulate a cashier system.</p>
+            <a href="https://rafiansyah05.github.io/SISTEM-KASIR/" class="mt-4 bg-blue-500 text-white px-4 py-3 rounded-3xl hover:bg-blue-600 text-sm md:text-base">View Project</a>
+          </div>
+
+          <div class="bg-black/40 py-6 px-6 rounded-2xl shadow-md hover:scale-105 transition max-w-sm mx-auto flex flex-col items-start">
+            <img src="img/tubes.png" alt="Project 8 screenshot" class="w-full h-56 object-cover rounded-md" />
+            <h3 class="text-white text-xl md:text-2xl font-semibold mt-4">SIMPLE CRYPTO MINING</h3>
+            <p class="text-gray-300 text-sm md:text-base mt-2">Final project for ALPRO 2 course — a basic crypto mining simulation.</p>
+            <a href="https://github.com/Rafiansyah05/tubes_alpro" class="mt-4 bg-blue-500 text-white px-4 py-3 rounded-3xl hover:bg-blue-600 text-sm md:text-base">View Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievement" class="px-6 md:px-20 py-20 overflow-hidden" style="font-family: 'Poppins', sans-serif">
+      <h2 class="text-3xl font-bold mb-10 text-center">My Experience</h2>
+      <div class="achievement-slider">
+        <div class="bg-black/40 py-6 px-6 rounded-2xl shadow-md hover:scale-105 transition max-w-sm mx-auto flex flex-col items-start">
+          <img src="img/prestasi-1.png" alt="Project 1 screenshot" class="w-full h-56 object-cover rounded-md" />
+          <h3 class="text-white text-xl md:text-2xl font-semibold mt-4">2nd Place UI/UX ANFORCOM</h3>
+          <p class="text-gray-300 text-sm md:text-base mt-2">Won 2nd place in the UI/UX Competition - Anforcom 2025, organized by Diponegoro University at the national level.</p>
+        </div>
+
+        <div class="bg-black/40 py-6 px-6 rounded-2xl shadow-md hover:scale-105 transition max-w-sm mx-auto flex flex-col items-start">
+          <img src="img/prestasi-2.png" alt="Project 2 screenshot" class="w-full h-56 object-cover rounded-md" />
+          <h3 class="text-white text-xl md:text-2xl font-semibold mt-4">1st Place UI/UX INFORNATION</h3>
+          <p class="text-gray-300 text-sm md:text-base mt-2">Won 1st place in the Infornation UI/UX Design Competition 2025, organized by Mataram University at the national level.</p>
+        </div>
+
+        <div class="bg-black/40 py-6 px-6 rounded-2xl shadow-md hover:scale-105 transition max-w-sm mx-auto flex flex-col items-start">
+          <img src="img/prestasi-3.png" alt="Project 3 screenshot" class="w-full h-56 object-cover rounded-md" />
+          <h3 class="text-white text-xl md:text-2xl font-semibold mt-4">2nd Place UI/UX INTERFEST</h3>
+          <p class="text-gray-300 text-sm md:text-base mt-2">Won 2nd place in the UI/UX INTERFEST 2025 competition, organized by Telkom University at the regional level.</p>
+        </div>
+
+        <div class="bg-black/40 py-6 px-6 rounded-2xl shadow-md hover:scale-105 transition max-w-sm mx-auto flex flex-col items-start">
+          <img src="img/prestasi-4.jpg" alt="Project 4 screenshot" class="w-full h-56 object-cover rounded-md" />
+          <h3 class="text-white text-xl md:text-2xl font-semibold mt-4">2nd Place PKM FKS</h3>
+          <p class="text-gray-300 text-sm md:text-base mt-2">Won 2nd place in the PKM FKS competition, organized by Telkom University Bandung at the campus regional level.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="px-6 md:px-20 py-20 grid md:grid-cols-2 gap-y-10 gap-x-20 md:items-stretch items-center md:min-h-[420px]" style="font-family: 'Poppins', sans-serif">
+      <div class="h-full flex items-center justify-center">
+        <div class="p-1 rounded-3xl bg-gradient-to-tr from-blue-500">
+          <div class="bg-black/60 rounded-2xl overflow-hidden p-1">
+            <img src="img/foto-saya-2.png" alt="Foto Rafiansyah" class="rounded-2xl w-full max-w-[320px] md:max-w-[360px] h-auto object-cover block" />
+          </div>
+        </div>
+      </div>
+
+      <form id="contactForm" class="bg-black/40 p-6 rounded-2xl space-y-4 h-full flex flex-col justify-between">
+        <div class="space-y-4">
+          <input type="text" id="name" placeholder="Name" class="w-full p-3 rounded-lg bg-gray-800 text-white" style="font-family: 'Poppins', sans-serif" required />
+          <input type="email" id="email" placeholder="Email Address" class="w-full p-3 rounded-lg bg-gray-800 text-white" style="font-family: 'Poppins', sans-serif" required />
+          <textarea id="message" placeholder="Message" class="w-full p-3 rounded-lg bg-gray-800 text-white h-40 md:h-56" style="font-family: 'Poppins', sans-serif" required></textarea>
+        </div>
+        <button id="sendBtn" disabled class="w-full bg-blue-400 py-3 rounded-2xl opacity-50 cursor-not-allowed transition-all duration-300" style="font-family: 'Poppins', sans-serif">Send to Rafiansyah</button>
+      </form>
+    </section>
+
+    <footer class="text-center py-6 bg-black/40 p-7">© 2025 Rafiansyah | Front-End Developer & UI/UX Enthusiast</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+      const words = ['FRONTEND', 'UI/UX DESIGNER'];
+      let wordIndex = 0,
+        charIndex = 0;
+      const typingElement = document.getElementById('typing');
+
+      function type() {
+        if (charIndex < words[wordIndex].length) {
+          typingElement.textContent += words[wordIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, 100);
+        } else {
+          setTimeout(erase, 2000);
+        }
+      }
+
+      const menuBtn = document.getElementById('menu-btn');
+      const sidebar = document.getElementById('sidebar');
+      const closeBtn = document.getElementById('close-btn');
+
+      menuBtn.addEventListener('click', () => {
+        sidebar.classList.remove('translate-x-full');
+      });
+
+      closeBtn.addEventListener('click', () => {
+        sidebar.classList.add('translate-x-full');
+      });
+
+      document.querySelectorAll('#sidebar a').forEach((link) => {
+        link.addEventListener('click', () => {
+          sidebar.classList.add('translate-x-full');
+        });
+      });
+
+      function erase() {
+        if (charIndex > 0) {
+          typingElement.textContent = words[wordIndex].substring(0, charIndex - 1);
+          charIndex--;
+          setTimeout(erase, 50);
+        } else {
+          wordIndex = (wordIndex + 1) % words.length;
+          setTimeout(type, 500);
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', type);
+
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          navLinks.forEach((l) => l.classList.remove('active'));
+          link.classList.add('active');
+        });
+      });
+
+      // contact form validation
+      const form = document.getElementById('contactForm');
+      const inputs = form.querySelectorAll('input, textarea');
+      const sendBtn = document.getElementById('sendBtn');
+
+      inputs.forEach((input) => {
+        input.addEventListener('input', () => {
+          let allFilled = true;
+          inputs.forEach((i) => {
+            if (!i.value.trim()) allFilled = false;
+          });
+
+          if (allFilled) {
+            sendBtn.disabled = false;
+            sendBtn.classList.remove('opacity-50', 'cursor-not-allowed', 'bg-blue-400');
+            sendBtn.classList.add('bg-blue-500', 'hover:bg-blue-600');
+          } else {
+            sendBtn.disabled = true;
+            sendBtn.classList.add('opacity-50', 'cursor-not-allowed', 'bg-blue-400');
+            sendBtn.classList.remove('bg-blue-500', 'hover:bg-blue-600');
+          }
+        });
+      });
+
+      emailjs.init('UbYtUHLozscPzp5bk');
+
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const messageInput = document.getElementById('message');
+      const sendButton = form.querySelector('button');
+
+      function validateForm() {
+        const isValid = nameInput.value.trim() && emailInput.value.includes('@') && messageInput.value.trim();
+
+        sendButton.disabled = !isValid;
+        sendButton.classList.toggle('opacity-50', !isValid);
+      }
+
+      [nameInput, emailInput, messageInput].forEach((input) => {
+        input.addEventListener('input', validateForm);
+      });
+
+      validateForm();
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        emailjs
+          .send('service_n2mdghj', 'template_ar86glm', {
+            from_name: nameInput.value,
+            from_email: emailInput.value,
+            message: messageInput.value,
+            time: new Date().toLocaleString(),
+          })
+          .then(() => {
+            showSuccessPopup();
+            form.reset();
+            validateForm();
+          })
+          .catch((error) => {
+            alert('Failed to send message: ' + JSON.stringify(error));
+          });
+      });
+
+      function showSuccessPopup() {
+        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+
+        const popup = document.createElement('div');
+        popup.className = 'fixed inset-0 flex items-center justify-center bg-black/70 z-50';
+        popup.innerHTML = `
+      <div class="bg-white text-black rounded-2xl p-8 text-center animate-bounce">
+        <h2 class="text-2xl font-bold">✅ Message Sent!</h2>
+        <p class="mt-2">Thank you for reaching out, I'll get back to you soon.</p>
+        <button onclick="this.parentElement.parentElement.remove()" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg">Close</button>
+      </div>
+    `;
+        document.body.appendChild(popup);
+      }
+    </script>
+  </body>
+</html>
